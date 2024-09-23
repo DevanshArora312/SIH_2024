@@ -42,7 +42,7 @@ function App() {
       </header>
       {
         wallet && seedPhrase ? <Routes>
-            <Route path={"/wallet"} element={<Wallet />}/>
+            <Route path={"/wallet"} element={<Wallet wallet={wallet} seedPhrase={seedPhrase} setSeedPhrase={setSeedPhrase} setWallet={setWallet} selectedChain={selectedChain}/>}/>
         </Routes> : <Routes>
           <Route path={"/"} element={<Home/>}/>
           <Route path={"/recover"} element={<RecoverWallet setSeedPhrase={setSeedPhrase} setWallet={setWallet}/>}/>
