@@ -1,7 +1,9 @@
 import React from 'react'
 import apophis_logo from '../assets/apophis.jpg';
 import { Button } from 'antd';
+import { useNavigate } from 'react-router-dom';
 const Home = () => {
+    const navigate = useNavigate();
   return (
     <div className='flex flex-col items-center my-16'>
         <div>
@@ -12,7 +14,7 @@ const Home = () => {
         <div className='my-8 flex flex-row items-center gap-4'>
             <Button
                 onClick={()=>{
-
+                    navigate("/wallet");
                 }}
                 type='primary'
             >
@@ -20,7 +22,7 @@ const Home = () => {
             </Button>
             <Button
                 onClick={()=>{
-
+                    navigate("/recover");
                 }}
                 type='default'
             >

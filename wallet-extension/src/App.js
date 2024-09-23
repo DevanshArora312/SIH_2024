@@ -2,6 +2,8 @@ import {useState} from 'react';
 import { Select } from "antd";
 import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
+import CreateWallet from './components/createWallet';
+import RecoverWallet from './components/recoverWallet';
 function App() {
   const [wallet, setWallet] = useState(null);
   const [seedPhrase, setSeedPhrase] = useState(null);
@@ -38,8 +40,8 @@ function App() {
       </header>
       <Routes>
         <Route path={"/"} element={<Home/>}/>
-        {/* <Route path={"/recover"} element={<RecoverAccount setSeedPhrase={setSeedPhrase} setWallet={setWallet}/>}/> */}
-        {/* <Route path={"/yourwallet"} element={<CreateAccount setSeedPhrase={setSeedPhrase} setWallet={setWallet}/>}/> */}
+        <Route path={"/recover"} element={<RecoverWallet setSeedPhrase={setSeedPhrase} setWallet={setWallet}/>}/>
+        <Route path={"/wallet"} element={<CreateWallet setSeedPhrase={setSeedPhrase} setWallet={setWallet}/>}/>
       </Routes>
     </div>
   );
