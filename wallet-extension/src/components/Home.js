@@ -6,7 +6,7 @@ const Home = () => {
     const navigate = useNavigate();
   return (
     <div className='flex flex-col items-center my-16'>
-        <div>
+        <div className='animate-spin duration-1000'>
             <img src={apophis_logo} width={250} height={250} className='rounded-full'/>
         </div>
         <h2 className='text-[28px] font-bold text-stone-600'>Welcome Back!</h2>

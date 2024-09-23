@@ -49,6 +49,7 @@ const RecoverWallet = ({setWallet, setSeedPhrase}) => {
                 Recover Wallet
             </Button>
           </div>
+          {!valid && <p className='text-red-400'> Invalid Seed Phrase</p>}
     </div>
   )
 }

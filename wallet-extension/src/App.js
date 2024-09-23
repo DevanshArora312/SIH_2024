@@ -4,6 +4,8 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import CreateWallet from './components/createWallet';
 import RecoverWallet from './components/recoverWallet';
+import Wallet from './components/wallet';
+import Apophis_logo from './assets/apophis.jpg';
 function App() {
   const [wallet, setWallet] = useState(null);
   const [seedPhrase, setSeedPhrase] = useState(null);
@@ -11,8 +13,8 @@ function App() {
   return (
     <div className="text-center w-[350px] h-[600px] flex flex-col items-center justify-start border border-black">
       <header className='flex flex-row items-center justify-between w-full px-4 my-4'>
-            <div className='text-[18px] font-bold text-stone-400'>
-                Apophis
+            <div className='text-[18px] font-bold text-blue-600 flex flex-row gap-2 justify-center items-center'>
+                {wallet && <span className='animate-spin rounded-full '><img src={Apophis_logo} height={40} width={40}/></span>}Apophis
             </div>
             <div>
               <Select
@@ -38,11 +40,15 @@ function App() {
               </Select>
           </div>
       </header>
-      <Routes>
-        <Route path={"/"} element={<Home/>}/>
-        <Route path={"/recover"} element={<RecoverWallet setSeedPhrase={setSeedPhrase} setWallet={setWallet}/>}/>
-        <Route path={"/wallet"} element={<CreateWallet setSeedPhrase={setSeedPhrase} setWallet={setWallet}/>}/>
-      </Routes>
+      {
+        wallet && seedPhrase ? <Routes>
+            <Route path={"/wallet"} element={<Wallet />}/>
+        </Routes> : <Routes>
+          <Route path={"/"} element={<Home/>}/>
+          <Route path={"/recover"} element={<RecoverWallet setSeedPhrase={setSeedPhrase} setWallet={setWallet}/>}/>
+          <Route path={"/wallet"} element={<CreateWallet setSeedPhrase={setSeedPhrase} setWallet={setWallet}/>}/>
+        </Routes>
+      }
     </div>
   );
 }

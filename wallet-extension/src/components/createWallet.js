@@ -34,42 +34,45 @@ const CreateWallet = ({ setSeedPhrase, setWallet }) => {
                 Once you generate the seed phrase, save it securely in order to
                 recover your wallet in the future.
             </div>
-            <div className='w-full flex flex-col items-start mt-16'>
+            <div className='w-full flex flex-col items-start mt-16 pl-2'>
                 {newSeedPhrase && (
                     <div onClick={copyToClipboard} className='py-2'>
                         <Button type='default'>Copy to Clipboard</Button>
                     </div>
                 )}
             </div>
-            <div className='h-[200px] mb-2'>
-                <Card className='p-[5px]'>
-                    {
-                        newSeedPhrase && <div className='flex flex-col items-center justify-center gap-4'>
-                            <div className='flex flex-row items-center gap-4 justify-center'>
-                                {
-                                    newSeedPhrase.split(" ").slice(0, 4).map((phrase) => {
-                                        return <span className='bg-blue-400/40 px-2 text-blue-700 rounded-full'>{phrase}</span>
-                                    })
-                                }
+            {
+                newSeedPhrase && 
+                <div className='h-[200px] mb-2 px-2'>
+                    <Card className='p-[5px] '>
+                        {
+                            newSeedPhrase && <div className='flex flex-col items-center justify-center gap-4'>
+                                <div className='flex flex-row items-center gap-4 justify-center'>
+                                    {
+                                        newSeedPhrase.split(" ").slice(0, 4).map((phrase) => {
+                                            return <span className='bg-blue-400/40 px-2 text-blue-700 rounded-full'>{phrase}</span>
+                                        })
+                                    }
+                                </div>
+                                <div className='flex flex-row items-center gap-4 justify-center'>
+                                    {
+                                        newSeedPhrase.split(" ").slice(4, 8).map((phrase) => {
+                                            return <span className='bg-blue-400/40 px-2 text-blue-700 rounded-full'>{phrase}</span>
+                                        })
+                                    }
+                                </div>
+                                <div className='flex flex-row items-center gap-4 justify-center'>
+                                    {
+                                        newSeedPhrase.split(" ").slice(8, 12).map((phrase) => {
+                                            return <span className='bg-blue-400/40 px-2 text-blue-700 rounded-full'>{phrase}</span>
+                                        })
+                                    }
+                                </div>
                             </div>
-                            <div className='flex flex-row items-center gap-4 justify-center'>
-                                {
-                                    newSeedPhrase.split(" ").slice(4, 8).map((phrase) => {
-                                        return <span className='bg-blue-400/40 px-2 text-blue-700 rounded-full'>{phrase}</span>
-                                    })
-                                }
-                            </div>
-                            <div className='flex flex-row items-center gap-4 justify-center'>
-                                {
-                                    newSeedPhrase.split(" ").slice(8, 12).map((phrase) => {
-                                        return <span className='bg-blue-400/40 px-2 text-blue-700 rounded-full'>{phrase}</span>
-                                    })
-                                }
-                            </div>
-                        </div>
-                    }
-                </Card>
-            </div>
+                        }
+                    </Card>
+                </div>
+            }
             <div className='flex flex-col items-center gap-2'>
                 <div onClick={finalizeWallet}>
                     <Button type='primary'>Create Wallet</Button>
