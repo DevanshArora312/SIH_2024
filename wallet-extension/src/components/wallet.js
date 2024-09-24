@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { FaRegCopy } from "react-icons/fa";
 import { TbCopyCheck } from "react-icons/tb";
-import { Button, List, message } from 'antd';
+import { Button, Input, List, message } from 'antd';
 import { Tabs, Avatar } from "antd";
 import {useNavigate} from 'react-router-dom';
 const Wallet = ({
@@ -13,7 +13,8 @@ const Wallet = ({
 }) => {
   const [copied, setCopied] = useState(false);
   const [balance, setBalance] = useState(null);
-
+  const [amount, setAmount] = useState(0);
+  const [address, setAddress] = useState("");
   const navigate = useNavigate();
   
   useEffect(()=>{
@@ -61,6 +62,7 @@ const Wallet = ({
             bordered
             itemLayout='horizontal'
             dataSource={balance ? balance.tokens : []}
+            className='w-[250px]'
             renderItem={(item)=>{
               <List.Item style={{ textAlign: "left" }}>
                     <List.Item.Meta
@@ -102,7 +104,19 @@ const Wallet = ({
     {
       key: '3',
       label: 'Transfer',
-      children: 'Content of Tab Pane 3',
+      children: <div className='flex flex-col item-center gap-4 w-[250px]'>
+          <div>
+            <Input addonBefore="To:" placeholder='0x1' type='text'/>
+          </div>
+          <div>
+            <Input addonBefore="Amount:"/>
+          </div>
+          <div>
+              <Button type='dashed' className='w-full'>
+                Submit
+              </Button>
+          </div>
+      </div>,
     },
   ];
 
@@ -127,7 +141,7 @@ const Wallet = ({
             </div>
         </div> 
         <div className='mt-8 w-full flex flex-col items-center justify-center'>
-          <Tabs defaultActiveKey='1' items={items}/>
+          <Tabs defaultActiveKey='1' items={items} className='w-[250px] flex items-center justify-between'/>
         </div>      
         <div className='mt-8 w-full px-20'>
           <Button className='w-full' type='primary' onClick={logout}>
