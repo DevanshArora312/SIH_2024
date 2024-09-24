@@ -9,7 +9,7 @@ import Apophis_logo from './assets/apophis.jpg';
 function App() {
   const [wallet, setWallet] = useState(null);
   const [seedPhrase, setSeedPhrase] = useState(null);
-  const [selectedChain, setSelectedChain] = useState("Ethereum");
+  const [selectedChain, setSelectedChain] = useState("0x1");
   return (
     <div className="text-center w-[350px] h-[600px] flex flex-col items-center justify-start border border-black">
       <header className='flex flex-row items-center justify-between w-full px-4 my-4'>

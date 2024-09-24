@@ -9,7 +9,6 @@ const CreateWallet = ({ setSeedPhrase, setWallet }) => {
 
     const generateWallet = async () => {
         const mnemonic = ethers.Wallet.createRandom().mnemonic.phrase;
-        console.log(mnemonic);
         setNewSeedPhrase(mnemonic);
     };
 
