@@ -11,7 +11,7 @@ function App() {
   const [seedPhrase, setSeedPhrase] = useState(null);
   const [selectedChain, setSelectedChain] = useState("0x1");
   return (
-    <div className="text-center w-[350px] h-[600px] flex flex-col items-center justify-start border border-black">
+    <div className="text-center w-[350px] h-[600px] flex flex-col items-center justify-start border border-slate-600">
       <header className='flex flex-row items-center justify-between w-full px-4 my-4'>
             <div className='text-[18px] font-bold text-blue-600 flex flex-row gap-2 justify-center items-center'>
                 {wallet && <span className='animate-spin rounded-full '><img src={Apophis_logo} height={40} width={40}/></span>}Apophis
